@@ -30,5 +30,5 @@ yarn-error.log*
 .idea/workspace.xml
 .idea/misc.xml
 .idea/modules.xml
-.idea/table.iml
+.idea/memory-stretcher.iml
 .idea/vcs.xml
