@@ -1,0 +1,17 @@
+.grid-container {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    min-width: 600px;
+}
+.square {
+    display: inline-flex;
+    min-width: 100px;
+    min-height: 100px;
+    margin: 0.25rem;
+    border: 1px solid red;
+}
+
+.black {
+    background-color: black;
+}
