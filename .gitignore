@@ -21,3 +21,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+.idea
+.idea/.gitignore
+.idea/inspectionProfiles/
+
+.idea/workspace.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/table.iml
+.idea/vcs.xml
