@@ -5,7 +5,7 @@ import '../styles/App.css';
 function App() {
   return (
     <div className="App">
-    <Grid sizeArray={5}/>
+    <Grid sizeArray={4}/>
     </div>
   );
 }

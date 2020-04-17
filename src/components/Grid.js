@@ -8,6 +8,7 @@ function Grid(props) {
   const [randomNodes, setRandomNodes] = useState([]);
   const [correctlyClicked, setCorrectlyClicked] = useState(0);
   const [howManyNodes, setHowManyNodes] = useState(Math.floor(props.sizeArray * props.sizeArray * 0.35))
+  const [initialClass, setInitialClass] = useState(false);
 
   const between = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -26,7 +27,10 @@ function Grid(props) {
     setRandomNodes(randomNodes);
   };
 
-  const showingRandomNodes = (indicator, isShowing) => {
+  const showingRandomNodes = (indicator, isShowing, initialClass) => {
+    if (initialClass) {
+      return "";
+    }
     if (isShowing) {
       if (indicator === 1) {
         return "black";
@@ -39,7 +43,7 @@ function Grid(props) {
   };
 
 
-  const renderGrid = (array, isShowing) => {
+  const renderGrid = (array, isShowing, initialClass) => {
     let counterID = -1;
     return array.map((row, index) => {
       return (
@@ -52,7 +56,7 @@ function Grid(props) {
                 data-index={counterID}
                 className={`square ${showingRandomNodes(
                   randomNodes[counterID],
-                  isShowing
+                  isShowing, initialClass
                 )}`}
                 onClick={(e)=>handleClick(e)}
               >
@@ -64,12 +68,15 @@ function Grid(props) {
       );
     });
   };
+
+
   const startGame = () => {
     getRandomNodes(props.sizeArray);
-    setIsShowing(true);
+
+    setIsShowing(true)
     const timer = setTimeout(() => {
       setIsShowing(false);
-    }, 5000);
+    }, 1500);
     return () => clearTimeout(timer);
   };
 
@@ -99,7 +106,7 @@ function Grid(props) {
 
 
       <div className="grid-container">
-        {renderGrid(gridSize, isShowing)}
+        {renderGrid(gridSize, isShowing, initialClass)}
       </div>
     </div>
   );
