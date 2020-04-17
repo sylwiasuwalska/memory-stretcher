@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import "../styles/Grid.css";
 
 function Grid(props) {
+
   const gridSize = [...Array(props.sizeArray)];
-  const [isShowing, setIsShowing] = useState(true);
+  const [isShowing, setIsShowing] = useState(false);
   const [randomNodes, setRandomNodes] = useState([]);
+  const [correctlyClicked, setCorrectlyClicked] = useState(0);
+  const [howManyNodes, setHowManyNodes] = useState(Math.floor(props.sizeArray * props.sizeArray * 0.35))
 
   const between = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
   const getRandomNodes = (size) => {
-    const howManyNodes = Math.floor(size * size * 0.35);
 
     const randomNodes = Array.from(Array(size * size), () => 0);
     for (let i = 1; i <= howManyNodes; i++) {
@@ -36,6 +38,7 @@ function Grid(props) {
     }
   };
 
+
   const renderGrid = (array, isShowing) => {
     let counterID = -1;
     return array.map((row, index) => {
@@ -46,12 +49,13 @@ function Grid(props) {
             return (
               <div
                 key={counterID}
+                data-index={counterID}
                 className={`square ${showingRandomNodes(
                   randomNodes[counterID],
                   isShowing
                 )}`}
+                onClick={(e)=>handleClick(e)}
               >
-                {" "}
                 {randomNodes[counterID]}
               </div>
             );
@@ -60,17 +64,43 @@ function Grid(props) {
       );
     });
   };
-
-  useEffect(() => {
+  const startGame = () => {
     getRandomNodes(props.sizeArray);
-  },[]);
+    setIsShowing(true);
+    const timer = setTimeout(() => {
+      setIsShowing(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  };
+
+  const handleClick = (event) => {
+    let nodeID = event.target.getAttribute("data-index");
+    if (randomNodes[nodeID]===1) {
+      randomNodes[nodeID]=0;
+      setCorrectlyClicked(correctlyClicked+1)
+      event.target.classList.add("blue")
+    }
+  }
+
+  const displayScores = () => {
+    if (correctlyClicked=== howManyNodes) {
+      return "Win! Start again."
+    } else {
+    return `Correctly clicked: ${correctlyClicked} Remain: ${howManyNodes-correctlyClicked}`
+    }
+  }
+
+
 
   return (
-    <div className="grid-container">
+    <div>
+      <button onClick={startGame}>Start</button>
+      <div>{displayScores()}</div>
 
-      {renderGrid(gridSize, isShowing)}
-      {setTimeout(()=>{setIsShowing(false)},3000 )}
 
+      <div className="grid-container">
+        {renderGrid(gridSize, isShowing)}
+      </div>
     </div>
   );
 }
