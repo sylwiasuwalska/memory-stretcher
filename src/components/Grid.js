@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Grid.css";
 import { Col, Row } from "react-bootstrap";
 
@@ -87,7 +87,7 @@ function Grid(props) {
     setWronglyClicked(0);
     const timer = setTimeout(() => {
       setIsShowing(false);
-    }, 1500);
+    }, 3000);
     return () => clearTimeout(timer);
   };
 
