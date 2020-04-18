@@ -8,7 +8,7 @@ function Grid(props) {
   const [randomNodes, setRandomNodes] = useState([]);
   const [correctlyClicked, setCorrectlyClicked] = useState(0);
   const [howManyNodes, setHowManyNodes] = useState(Math.floor(props.sizeArray * props.sizeArray * 0.35))
-  const [initialClass, setInitialClass] = useState(false);
+
 
   const between = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -27,10 +27,7 @@ function Grid(props) {
     setRandomNodes(randomNodes);
   };
 
-  const showingRandomNodes = (indicator, isShowing, initialClass) => {
-    if (initialClass) {
-      return "";
-    }
+  const showingRandomNodes = (indicator, isShowing) => {
     if (isShowing) {
       if (indicator === 1) {
         return "black";
@@ -43,7 +40,7 @@ function Grid(props) {
   };
 
 
-  const renderGrid = (array, isShowing, initialClass) => {
+  const renderGrid = (array, isShowing) => {
     let counterID = -1;
     return array.map((row, index) => {
       return (
@@ -56,8 +53,7 @@ function Grid(props) {
                 data-index={counterID}
                 className={`square ${showingRandomNodes(
                   randomNodes[counterID],
-                  isShowing, initialClass
-                )}`}
+                  isShowing)}`}
                 onClick={(e)=>handleClick(e)}
               >
                 {randomNodes[counterID]}
