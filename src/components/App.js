@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 import Grid from "./Grid";
-import '../styles/App.css';
+import "../styles/App.css";
 
 function App() {
   return (
     <div className="App">
-    <Grid sizeArray={4}/>
+      <header>
+        <h1>Memory Stretcher</h1>
+      </header>
+      <Grid sizeArray={4} />
     </div>
   );
 }

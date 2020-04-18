@@ -1,4 +1,10 @@
+.scores {
+    height: 20vh;
+    align-content: center;
+}
+
 .grid-container {
+    height: 60vh;
     display: block;
     margin: 0 auto;
     width: 80%;
@@ -9,13 +15,16 @@
     min-width: 100px;
     min-height: 100px;
     margin: 0.25rem;
-    border: 1px solid red;
+    background-color: #f67e7d;
+    transition: background-color 0.25s ease-out;
 }
 
-.black {
-    background-color: black;
+.chosen {
+    transition: background-color 0.25s ease-out;
+    background-color: #621940;
 }
 
-.blue {
-    background-color: blue;
+.clicked {
+    transition: background-color 0.25s ease-out;
+    background-color: #843b62;
 }
