@@ -101,6 +101,7 @@ function Grid(props) {
       setCorrectlyClicked(correctlyClicked + 1);
       event.target.classList.add("clicked");
     } else {
+      event.target.classList.add("missed");
       setWronglyClicked(wronglyClicked + 1);
     }
   };
@@ -109,7 +110,7 @@ function Grid(props) {
     if (isWinning) {
       return (
         <div>
-          <p className={`${isWinning ? "scaling" : ""}`}>success!</p>
+          <p className={`${isWinning ? "bouncing" : ""}`}>success!</p>
           <p> start again.</p>
         </div>
       );
@@ -127,7 +128,7 @@ function Grid(props) {
     if (correctlyClicked === howManyNodes) {
       setIsWinning(true);
       setIsShowing(true);
-      setTotalWins(totalWins + 1);
+      setTotalWins(t => t + 1);
       setTimeout(() => {
         setCorrectlyClicked(0);
         return setClear(true);
@@ -138,11 +139,11 @@ function Grid(props) {
   useEffect(() => {
     if (wronglyClicked === 3) {
       setIsLosing(true);
-      setTotalDefeats(totalDefeats + 1);
+      setTotalDefeats(t => t + 1);
       setTimeout(() => {
         setCorrectlyClicked(0);
         return setClear(true);
-      }, 1000);
+      }, 100);
     }
   }, [wronglyClicked, correctlyClicked, howManyNodes]);
 

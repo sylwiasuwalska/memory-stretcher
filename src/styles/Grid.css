@@ -1,15 +1,13 @@
 
 .scores {
     text-align: left;
-
 }
-
 
 .scores p {
     font-size: 1.5rem;
 }
 
-.scaling {
+.bouncing {
     animation: bounceIn 1s ease-in-out;
 }
 
@@ -55,7 +53,6 @@ button {
 
 .square {
     display: inline-flex;
-    /*min-width: 100px;*/
     width: 80px;
     height: 80px;
     margin: 0.1rem 0.2rem;
@@ -71,4 +68,38 @@ button {
 .clicked {
     transition: background-color 0.25s ease-out;
     background-color: #3b7dd8;
+}
+
+.missed {
+    animation: crash 0.25s ease-out;
+}
+
+@keyframes crash {
+    0% {
+        transform: rotate(10deg);
+    }
+    30% {
+        transform: rotate(-10deg);
+    }
+
+    60% {
+        transform: rotate(10deg);
+
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+
+
+@media only screen and (max-width: 1130px) {
+    .scores {
+        text-align: center;
+    }
+
+    .square {
+        width: 60px;
+        height: 60px;
+    }
 }
