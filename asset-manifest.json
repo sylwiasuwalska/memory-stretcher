@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/memory-stretcher/static/css/main.68a5b254.chunk.css",
+    "main.js": "/memory-stretcher/static/js/main.0e5db058.chunk.js",
+    "main.js.map": "/memory-stretcher/static/js/main.0e5db058.chunk.js.map",
+    "runtime-main.js": "/memory-stretcher/static/js/runtime-main.96ed6a1c.js",
+    "runtime-main.js.map": "/memory-stretcher/static/js/runtime-main.96ed6a1c.js.map",
+    "static/css/2.69121389.chunk.css": "/memory-stretcher/static/css/2.69121389.chunk.css",
+    "static/js/2.20664234.chunk.js": "/memory-stretcher/static/js/2.20664234.chunk.js",
+    "static/js/2.20664234.chunk.js.map": "/memory-stretcher/static/js/2.20664234.chunk.js.map",
+    "index.html": "/memory-stretcher/index.html",
+    "precache-manifest.5a4693f0222c44b7af3db2fdf2e8c92b.js": "/memory-stretcher/precache-manifest.5a4693f0222c44b7af3db2fdf2e8c92b.js",
+    "service-worker.js": "/memory-stretcher/service-worker.js",
+    "static/css/2.69121389.chunk.css.map": "/memory-stretcher/static/css/2.69121389.chunk.css.map",
+    "static/css/main.68a5b254.chunk.css.map": "/memory-stretcher/static/css/main.68a5b254.chunk.css.map",
+    "static/js/2.20664234.chunk.js.LICENSE.txt": "/memory-stretcher/static/js/2.20664234.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.96ed6a1c.js",
+    "static/css/2.69121389.chunk.css",
+    "static/js/2.20664234.chunk.js",
+    "static/css/main.68a5b254.chunk.css",
+    "static/js/main.0e5db058.chunk.js"
+  ]
+}
