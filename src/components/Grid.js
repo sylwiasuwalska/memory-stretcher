@@ -1,5 +1,6 @@
-import React, {Fragment, useEffect, useRef, useState} from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import "../styles/Grid.css";
+import { Col, Row } from "react-bootstrap";
 
 function Grid(props) {
   const gridSize = [...Array(props.sizeArray)];
@@ -14,6 +15,9 @@ function Grid(props) {
   const [isWinning, setIsWinning] = useState(false);
   const [isLosing, setIsLosing] = useState(false);
   const [clear, setClear] = useState(false);
+
+  const [totalWins, setTotalWins] = useState(0);
+  const [totalDefeats, setTotalDefeats] = useState(0);
 
   const between = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -47,7 +51,7 @@ function Grid(props) {
     let counterID = -1;
     return array.map((row, index) => {
       return (
-        <div key={index}>
+        <div key={index} className="grid-row">
           {array.map(() => {
             counterID++;
             return (
@@ -103,23 +107,18 @@ function Grid(props) {
 
   const displayScores = () => {
     if (isWinning) {
-      return <div>Win! Start again.</div>;
-    } else if (isLosing) {
-      return <div>You lost! Start again.</div>;
-    } else {
       return (
-        <Fragment>
-          <div>
-            {`Correctly clicked: ${correctlyClicked} Remain ${
-              howManyNodes - correctlyClicked
-            } nodes to win.`}
-          </div>{" "}
-          <div>
-            {`Wrongly clicked: ${wronglyClicked} Clicks left ${
-              3 - wronglyClicked
-            }`}{" "}
-          </div>
-        </Fragment>
+        <div>
+          <p className={`${isWinning ? "scaling" : ""}`}>success!</p>
+          <p> start again.</p>
+        </div>
+      );
+    } else if (isLosing) {
+      return (
+        <div>
+          <p>defeat!</p>
+          <p> start again.</p>
+        </div>
       );
     }
   };
@@ -128,13 +127,18 @@ function Grid(props) {
     if (correctlyClicked === howManyNodes) {
       setIsWinning(true);
       setIsShowing(true);
+      setTotalWins(totalWins + 1);
       setTimeout(() => {
         setCorrectlyClicked(0);
         return setClear(true);
-      }, 1000);
+      }, 2000);
     }
+  }, [wronglyClicked, correctlyClicked, howManyNodes]);
+
+  useEffect(() => {
     if (wronglyClicked === 3) {
       setIsLosing(true);
+      setTotalDefeats(totalDefeats + 1);
       setTimeout(() => {
         setCorrectlyClicked(0);
         return setClear(true);
@@ -143,16 +147,20 @@ function Grid(props) {
   }, [wronglyClicked, correctlyClicked, howManyNodes]);
 
   return (
-    <div>
-      <div className="scores">
-        <button onClick={startGame}>Start</button>
-        {displayScores()}
-      </div>
-
-      <div className="grid-container">
+    <Row>
+      <Col className="grid-container">
         {renderGrid(gridSize, isShowing, clear)}
-      </div>
-    </div>
+        <button onClick={startGame}>START</button>
+      </Col>
+      <Col className="scores">
+        <p>{`${correctlyClicked} nodes exposed. `} </p>
+        <p>{`${howManyNodes - correctlyClicked} nodes remain to win. `}</p>
+        <p>{`${wronglyClicked}  missed shots. `} </p>
+        <p>{`${3 - wronglyClicked} shots left. `}</p>
+        <p className="total">{`total wins ${totalWins} : ${totalDefeats} total defeats `}</p>
+        {displayScores()}
+      </Col>
+    </Row>
   );
 }
 

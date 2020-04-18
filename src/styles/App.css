@@ -1,10 +1,14 @@
 .App {
   text-align: center;
   color: #fff;
+  font-family: 'Nova Mono', monospace;
 }
 
 .App header {
-  font-family: 'Stalemate', cursive;
-  font-size: 24px;
-  height: 20vh;
+
+}
+
+h1 {
+  font-size: 3rem;
+  padding: 2rem;
 }

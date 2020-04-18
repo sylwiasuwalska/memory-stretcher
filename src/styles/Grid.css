@@ -1,30 +1,74 @@
+
 .scores {
-    height: 20vh;
-    align-content: center;
+    text-align: left;
+
+}
+
+
+.scores p {
+    font-size: 1.5rem;
+}
+
+.scaling {
+    animation: bounceIn 1s ease-in-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.total {
+    margin: 3rem 0;
+}
+
+button {
+    background-color: #3b7dd8;
+    border: none;
+    width: 25%;
+    height: 3rem;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
 
 .grid-container {
-    height: 60vh;
     display: block;
     margin: 0 auto;
-    width: 80%;
-    min-width: 600px;
+    min-width: 400px;
+    min-height: 400px;
 }
+
+.grid-row {
+    margin: 0;
+    padding: 0;
+}
+
 .square {
     display: inline-flex;
-    min-width: 100px;
-    min-height: 100px;
-    margin: 0.25rem;
-    background-color: #f67e7d;
+    /*min-width: 100px;*/
+    width: 80px;
+    height: 80px;
+    margin: 0.1rem 0.2rem;
+    background-color:  #bfd6f6;
     transition: background-color 0.25s ease-out;
 }
 
 .chosen {
     transition: background-color 0.25s ease-out;
-    background-color: #621940;
+    background-color: #3b7dd8;
 }
 
 .clicked {
     transition: background-color 0.25s ease-out;
-    background-color: #843b62;
+    background-color: #3b7dd8;
 }
