@@ -4,8 +4,8 @@
   font-family: 'Nova Mono', monospace;
 }
 
-.App header {
-
+header {
+  margin-bottom: 2rem;
 }
 
 h1 {

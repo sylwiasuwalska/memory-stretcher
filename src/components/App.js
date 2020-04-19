@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "./Grid";
 import "../styles/App.css";
-import {Col, Container, Row} from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 function App() {
   return (
@@ -10,12 +10,18 @@ function App() {
         <Col>
           <header>
             <h1>memory stretcher</h1>
+            <h4>
+              Randomly chosen nodes are displayed for short amount of time.{" "}
+            </h4>
+            <h4>
+              Player's task is to memorized them and find them all in less than
+              three attempts.
+            </h4>
           </header>
         </Col>
       </Row>
 
       <Grid sizeArray={5} />
-
     </Container>
   );
 }
