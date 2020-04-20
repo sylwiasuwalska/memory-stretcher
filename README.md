@@ -40,9 +40,9 @@ $ npm start
 ```
 
 ## Features
-In this project player 
+In this project player sees
 * Simple stats of current game
-* Scores of wins and defeats
+* Scores of wins and defeats from all games
 
 To-do list:
 * Improving adding classes on user's click
