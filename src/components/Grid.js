@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Grid.css";
 import { Col, Row } from "react-bootstrap";
+import Scores from "./Scores";
 
 function Grid(props) {
   const gridSize = [...Array(props.sizeArray)];
@@ -76,6 +77,7 @@ function Grid(props) {
       );
     });
   };
+  //TODO clearing after second start
 
   const startGame = () => {
     getRandomNodes(props.sizeArray);
@@ -90,6 +92,8 @@ function Grid(props) {
     }, 3000);
     return () => clearTimeout(timer);
   };
+
+  //TODO improve: add class multiple times
 
   const handleClick = (event) => {
     if (isShowing || isWinning || isLosing) {
@@ -108,23 +112,6 @@ function Grid(props) {
     }
   };
 
-  const displayScores = () => {
-    if (isWinning) {
-      return (
-        <div>
-          <p className={`${isWinning ? "bouncing" : ""}`}>success!</p>
-          <p> start again.</p>
-        </div>
-      );
-    } else if (isLosing) {
-      return (
-        <div>
-          <p>defeat!</p>
-          <p> start again.</p>
-        </div>
-      );
-    }
-  };
 
   useEffect(() => {
     if (correctlyClicked === howManyNodes) {
@@ -156,12 +143,7 @@ function Grid(props) {
         <button onClick={startGame}>START</button>
       </Col>
       <Col className="scores">
-        <p>{`${correctlyClicked} nodes exposed. `} </p>
-        <p>{`${howManyNodes - correctlyClicked} nodes remain to win. `}</p>
-        <p>{`${wronglyClicked}  missed shots. `} </p>
-        <p>{`${3 - wronglyClicked} shots left. `}</p>
-        <p className="total">{`total wins ${totalWins} : ${totalDefeats} total defeats `}</p>
-        {displayScores()}
+        <Scores scores={[correctlyClicked, howManyNodes, wronglyClicked, totalWins, totalDefeats, isWinning, isLosing]}/>
       </Col>
     </Row>
   );
