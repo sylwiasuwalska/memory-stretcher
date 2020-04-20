@@ -97,9 +97,11 @@ function Grid(props) {
     }
     let nodeID = event.target.getAttribute("data-index");
     if (randomNodes[nodeID] === 1) {
-      randomNodes[nodeID] = 0;
+      randomNodes[nodeID] = 2;
       setCorrectlyClicked(correctlyClicked + 1);
       event.target.classList.add("clicked");
+    } else if (randomNodes[nodeID] === 2) {
+      event.target.classList.add("missed");
     } else {
       event.target.classList.add("missed");
       setWronglyClicked(wronglyClicked + 1);
@@ -128,7 +130,7 @@ function Grid(props) {
     if (correctlyClicked === howManyNodes) {
       setIsWinning(true);
       setIsShowing(true);
-      setTotalWins(t => t + 1);
+      setTotalWins((t) => t + 1);
       setTimeout(() => {
         setCorrectlyClicked(0);
         return setClear(true);
@@ -139,7 +141,7 @@ function Grid(props) {
   useEffect(() => {
     if (wronglyClicked === 3) {
       setIsLosing(true);
-      setTotalDefeats(t => t + 1);
+      setTotalDefeats((t) => t + 1);
       setTimeout(() => {
         setCorrectlyClicked(0);
         return setClear(true);
@@ -149,7 +151,7 @@ function Grid(props) {
 
   return (
     <Row>
-      <Col className="grid-container">
+      <Col className={`grid-container ${isLosing ? "missed" : ""}`}>
         {renderGrid(gridSize, isShowing, clear)}
         <button onClick={startGame}>START</button>
       </Col>

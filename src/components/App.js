@@ -14,7 +14,7 @@ function App() {
               Randomly chosen nodes are displayed for short amount of time.{" "}
             </h4>
             <h4>
-              Player's task is to memorized them and find them all in less than
+              Player's task is to memorized them and find them all in a less than
               three attempts.
             </h4>
           </header>
