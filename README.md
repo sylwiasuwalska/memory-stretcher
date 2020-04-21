@@ -13,7 +13,7 @@
 ## General info
 Project made for fun. Main purpose is to learn testing with JEST and React Testing Library, on examples of components and functions from this project.
 
-##Live version
+## Live version
 You can test your memory here: https://sylwiasuwalska.github.io/memory-stretcher/
 
 ## Screenshots
