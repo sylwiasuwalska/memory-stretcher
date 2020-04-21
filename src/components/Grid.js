@@ -43,8 +43,8 @@ function Grid(props) {
       } else {
         return "";
       }
-    } else {
-      return "";
+    } else if (indicator === 2) {
+      return "clicked";
     }
   };
 
@@ -77,7 +77,6 @@ function Grid(props) {
       );
     });
   };
-  //TODO clearing after second start
 
   const startGame = () => {
     getRandomNodes(props.sizeArray);
@@ -103,7 +102,6 @@ function Grid(props) {
     if (randomNodes[nodeID] === 1) {
       randomNodes[nodeID] = 2;
       setCorrectlyClicked(correctlyClicked + 1);
-      event.target.classList.add("clicked");
     } else if (randomNodes[nodeID] === 2) {
       event.target.classList.add("missed");
     } else {
@@ -118,7 +116,6 @@ function Grid(props) {
       setIsShowing(true);
       setTotalWins((t) => t + 1);
       setTimeout(() => {
-        setCorrectlyClicked(0);
         return setClear(true);
       }, 2000);
     }
@@ -129,7 +126,6 @@ function Grid(props) {
       setIsLosing(true);
       setTotalDefeats((t) => t + 1);
       setTimeout(() => {
-        setCorrectlyClicked(0);
         return setClear(true);
       }, 100);
     }
@@ -142,7 +138,17 @@ function Grid(props) {
         <button onClick={startGame}>START</button>
       </Col>
       <Col className="scores">
-        <Scores scores={[correctlyClicked, howManyNodes, wronglyClicked, totalWins, totalDefeats, isWinning, isLosing]}/>
+        <Scores
+          scores={[
+            correctlyClicked,
+            howManyNodes,
+            wronglyClicked,
+            totalWins,
+            totalDefeats,
+            isWinning,
+            isLosing,
+          ]}
+        />
       </Col>
     </Row>
   );
