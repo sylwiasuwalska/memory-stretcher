@@ -112,7 +112,6 @@ function Grid(props) {
     }
   };
 
-
   useEffect(() => {
     if (correctlyClicked === howManyNodes) {
       setIsWinning(true);

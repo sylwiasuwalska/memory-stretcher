@@ -3,7 +3,7 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Live version](#liveversion)
+* [Live version](#live-version)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
