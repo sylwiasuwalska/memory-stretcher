@@ -37,7 +37,13 @@ function Grid(props) {
     setRandomNodes(randomNodes);
   };
 
-  const showingRandomNodes = (indicator, isShowing) => {
+  const showingNodes = (indicator, isShowing, isWinning) => {
+    if (isWinning) {
+      return "winning"
+    }
+    if (isLosing) {
+      return "losing"
+    }
     if (isShowing) {
       if (indicator === 1) {
         return "chosen";
@@ -63,9 +69,9 @@ function Grid(props) {
                 className={
                   clear
                     ? `square`
-                    : `square ${showingRandomNodes(
+                    : `square ${showingNodes(
                         randomNodes[counterID],
-                        isShowing
+                        isShowing, isWinning
                       )}`
                 }
                 onClick={(e) => handleClick(e)}
@@ -127,7 +133,7 @@ function Grid(props) {
       setTotalDefeats((t) => t + 1);
       setTimeout(() => {
         return setClear(true);
-      }, 100);
+      }, 1500);
     }
   }, [wronglyClicked, correctlyClicked, howManyNodes]);
 
