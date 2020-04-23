@@ -15,6 +15,7 @@ function Grid(props) {
   const [wronglyClicked, setWronglyClicked] = useState(0);
   const [isWinning, setIsWinning] = useState(false);
   const [isLosing, setIsLosing] = useState(false);
+
   const [clear, setClear] = useState(false);
 
   const [totalWins, setTotalWins] = useState(0);
@@ -68,6 +69,7 @@ function Grid(props) {
                       )}`
                 }
                 onClick={(e) => handleClick(e)}
+                onAnimationEnd={(e) => e.target.classList.remove("missed")}
               >
                 {/*{randomNodes[counterID]}*/}
               </div>
