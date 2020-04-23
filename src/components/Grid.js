@@ -94,8 +94,6 @@ function Grid(props) {
     return () => clearTimeout(timer);
   };
 
-  //TODO improve: add class multiple times
-
   const handleClick = (event) => {
     if (isShowing || isWinning || isLosing) {
       return;
