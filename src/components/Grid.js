@@ -148,12 +148,14 @@ function Grid(props) {
 
   return (
     <Fragment>
-
-          <ProgressBar
-            variant="info"
-            now={isLosing ? 0 : Math.floor((correctlyClicked / howManyNodes) * 100)}
-            label={`${isLosing ? 0 : Math.floor((correctlyClicked / howManyNodes) * 100)}%`}
-          />
+      <ProgressBar
+        now={
+          isLosing ? 0 : Math.round((correctlyClicked / howManyNodes) * 100)
+        }
+        label={`${
+          isLosing ? 0 : Math.round((correctlyClicked / howManyNodes) * 100)
+        }%`}
+      />
 
       <Row>
         <Col className={`grid-container ${isLosing ? "missed" : ""}`}>
@@ -161,15 +163,14 @@ function Grid(props) {
           <Row>
             <Col>
               <Options
-                  setDisplayTime={setDisplayTime}
-                  setHowManyNodes={setHowManyNodes}
-                  arraySize={props.sizeArray}
+                setDisplayTime={setDisplayTime}
+                setHowManyNodes={setHowManyNodes}
+                arraySize={props.sizeArray}
               />
             </Col>
             <Col>
               <button onClick={startGame}>START</button>
             </Col>
-
           </Row>
         </Col>
         <Col className="scores">

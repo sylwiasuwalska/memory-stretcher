@@ -1,8 +1,16 @@
 .progress {
-    height: 1.5rem;
+    height: 2rem;
     margin: 0.75rem;
     border-radius: 0;
+    background-color: transparent;
+    min-width: 20px;
+    border: 1px solid #3b7dd8;
 }
+
+.progress-bar {
+    background-color: #3b7dd8;
+}
+
 button {
     background-color: #3b7dd8;
     border: none;
@@ -66,7 +74,7 @@ button {
 }
 
 .winning {
-    background-color: #17A2B8;
+    background-color: #fff;
 }
 
 .losing {
