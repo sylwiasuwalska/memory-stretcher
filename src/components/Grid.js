@@ -146,15 +146,12 @@ function Grid(props) {
     }
   }, [wronglyClicked, correctlyClicked, howManyNodes]);
 
+
   return (
     <Fragment>
       <ProgressBar
-        now={
-          isLosing ? 0 : Math.round((correctlyClicked / howManyNodes) * 100)
-        }
-        label={`${
-          isLosing ? 0 : Math.round((correctlyClicked / howManyNodes) * 100)
-        }%`}
+        now={isLosing ? 0 : (correctlyClicked / howManyNodes) * 100}
+        label={`${isLosing ? 0 : `${correctlyClicked}/${howManyNodes}`}`}
       />
 
       <Row>
