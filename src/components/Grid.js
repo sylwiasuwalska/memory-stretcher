@@ -5,7 +5,7 @@ import Scores from "./Scores";
 
 function Grid(props) {
   const gridSize = [...Array(props.sizeArray)];
-  const [randomNodes, setRandomNodes] = useState([]);
+  const [nodes, setNodes] = useState([]);
   const [howManyNodes, setHowManyNodes] = useState(
     Math.floor(props.sizeArray * props.sizeArray * 0.35)
   );
@@ -34,7 +34,7 @@ function Grid(props) {
       }
       randomNodes[indexOfCurrentNode] = 1;
     }
-    setRandomNodes(randomNodes);
+    setNodes(randomNodes);
   };
 
   const showingNodes = (indicator, isShowing, isWinning) => {
@@ -70,7 +70,7 @@ function Grid(props) {
                   clear
                     ? `square`
                     : `square ${showingNodes(
-                        randomNodes[counterID],
+                        nodes[counterID],
                         isShowing, isWinning
                       )}`
                 }
@@ -104,11 +104,11 @@ function Grid(props) {
     if (isShowing || isWinning || isLosing) {
       return;
     }
-    let nodeID = event.target.getAttribute("data-index");
-    if (randomNodes[nodeID] === 1) {
-      randomNodes[nodeID] = 2;
+    let nodeID = event.target.dataset.index;
+    if (nodes[nodeID] === 1) {
+      nodes[nodeID] = 2;
       setCorrectlyClicked(correctlyClicked + 1);
-    } else if (randomNodes[nodeID] === 2) {
+    } else if (nodes[nodeID] === 2) {
       event.target.classList.add("missed");
     } else {
       event.target.classList.add("missed");
