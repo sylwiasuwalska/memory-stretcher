@@ -17,7 +17,7 @@ Project made for fun. Main purpose is to learn testing with JEST and React Testi
 You can test your memory here: https://sylwiasuwalska.github.io/memory-stretcher/
 
 ## Screenshots
-![screenshot](./src/viewScreen.jpg)
+![screenshot](src/viewScreen2.jpg)
 
 ## Technologies
 * ReactJS 16.13.1
