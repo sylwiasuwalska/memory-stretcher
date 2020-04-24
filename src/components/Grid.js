@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Grid.css";
 import { Col, Row } from "react-bootstrap";
+import Options from "./Options";
 import Scores from "./Scores";
 
 function Grid(props) {
   const gridSize = [...Array(props.sizeArray)];
   const [nodes, setNodes] = useState([]);
+  const [difficulty, setDifficulty] = useState(0.3);
   const [howManyNodes, setHowManyNodes] = useState(
-    Math.floor(props.sizeArray * props.sizeArray * 0.35)
+    Math.floor(props.sizeArray * props.sizeArray * difficulty)
   );
 
   const [isShowing, setIsShowing] = useState(false);
@@ -21,12 +23,15 @@ function Grid(props) {
   const [totalWins, setTotalWins] = useState(0);
   const [totalDefeats, setTotalDefeats] = useState(0);
 
+  const [displayTime, setDisplayTime] = useState(1000);
+
   const between = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
   const getRandomNodes = (size) => {
     const randomNodes = Array.from(Array(size * size), () => 0);
+
     for (let i = 1; i <= howManyNodes; i++) {
       let indexOfCurrentNode = between(1, size * size) - 1;
       while (randomNodes[indexOfCurrentNode] === 1) {
@@ -39,10 +44,10 @@ function Grid(props) {
 
   const showingNodes = (indicator, isShowing, isWinning) => {
     if (isWinning) {
-      return "winning"
+      return "winning";
     }
     if (isLosing) {
-      return "losing"
+      return "losing";
     }
     if (isShowing) {
       if (indicator === 1) {
@@ -71,7 +76,8 @@ function Grid(props) {
                     ? `square`
                     : `square ${showingNodes(
                         nodes[counterID],
-                        isShowing, isWinning
+                        isShowing,
+                        isWinning
                       )}`
                 }
                 onClick={(e) => handleClick(e)}
@@ -94,9 +100,12 @@ function Grid(props) {
     setIsShowing(true);
     setCorrectlyClicked(0);
     setWronglyClicked(0);
+    console.log(displayTime);
+    console.log(difficulty);
+    console.log(howManyNodes);
     const timer = setTimeout(() => {
       setIsShowing(false);
-    }, 3000);
+    }, displayTime);
     return () => clearTimeout(timer);
   };
 
@@ -141,7 +150,18 @@ function Grid(props) {
     <Row>
       <Col className={`grid-container ${isLosing ? "missed" : ""}`}>
         {renderGrid(gridSize, isShowing, clear)}
-        <button onClick={startGame}>START</button>
+        <Row>
+          <Col>
+            <button onClick={startGame}>START</button>
+          </Col>
+          <Col>
+            <Options
+              setDisplayTime={setDisplayTime}
+              setHowManyNodes={setHowManyNodes}
+              arraySize={props.sizeArray}
+            />
+          </Col>
+        </Row>
       </Col>
       <Col className="scores">
         <Scores
@@ -153,6 +173,7 @@ function Grid(props) {
             totalDefeats,
             isWinning,
             isLosing,
+            displayTime,
           ]}
         />
       </Col>
