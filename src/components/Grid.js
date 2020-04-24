@@ -7,9 +7,8 @@ import Scores from "./Scores";
 function Grid(props) {
   const gridSize = [...Array(props.sizeArray)];
   const [nodes, setNodes] = useState([]);
-  const [difficulty, setDifficulty] = useState(0.3);
   const [howManyNodes, setHowManyNodes] = useState(
-    Math.floor(props.sizeArray * props.sizeArray * difficulty)
+    Math.floor(props.sizeArray * props.sizeArray * 0.3)
   );
 
   const [isShowing, setIsShowing] = useState(false);
@@ -100,9 +99,6 @@ function Grid(props) {
     setIsShowing(true);
     setCorrectlyClicked(0);
     setWronglyClicked(0);
-    console.log(displayTime);
-    console.log(difficulty);
-    console.log(howManyNodes);
     const timer = setTimeout(() => {
       setIsShowing(false);
     }, displayTime);
