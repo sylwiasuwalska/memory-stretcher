@@ -22,7 +22,7 @@ function Options(props) {
 
   return (
     <>
-      <button onClick={handleShow}>
+      <button variant="outline-primary" onClick={handleShow}>
         OPTIONS
       </button>
 

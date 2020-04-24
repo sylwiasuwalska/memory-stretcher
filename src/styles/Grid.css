@@ -1,29 +1,8 @@
-
-.scores {
-    text-align: left;
+.progress {
+    height: 1.5rem;
+    margin: 0.75rem;
+    border-radius: 0;
 }
-
-.scores p {
-    font-size: 1.5rem;
-}
-
-.bouncing {
-    animation: bounceIn 1s ease-in;
-}
-
-@keyframes bounceIn {
-
-    0% { transform: translateY(0); }
-    30% { transform: translateY(-40px); }
-    50% { transform: translateY(0); }
-    80% {transform: translateY(-35px)}
-    100% { transform: translateY(0); }
-}
-
-.total {
-    margin: 3rem 0;
-}
-
 button {
     background-color: #3b7dd8;
     border: none;
@@ -87,18 +66,45 @@ button {
 }
 
 .winning {
-    background-color: #3BAB5A;
+    background-color: #17A2B8;
 }
 
 .losing {
     background-color: #FF2768;
 }
 
+.scores {
+    text-align: left;
+}
+
+.scores p {
+    font-size: 1.5rem;
+}
+
+.bouncing {
+    animation: bounceIn 1s ease-in;
+}
+
+@keyframes bounceIn {
+
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-40px); }
+    50% { transform: translateY(0); }
+    80% {transform: translateY(-35px)}
+    100% { transform: translateY(0); }
+}
+
+.total {
+    margin: 3rem 0;
+}
+
+
 
 
 @media only screen and (max-width: 1130px) {
     .scores {
         text-align: center;
+        margin-top: 1.5rem;
     }
 
     .square {

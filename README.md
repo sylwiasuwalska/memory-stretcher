@@ -45,7 +45,6 @@ In this project player sees
 * Scores of wins and defeats from all games
 
 To-do list:
-* Menu for player to choose difficulty levels and other options
 * Tests
 
 ## Status

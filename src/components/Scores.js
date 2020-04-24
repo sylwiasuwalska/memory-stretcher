@@ -24,7 +24,7 @@ function Scores(props) {
 
     return (
         <div>
-            <p>{`${displayTime/1000} sec - display time. `}</p>
+            <p>{`${displayTime/1000} sec of display time. `}</p>
             <p>{`${howManyNodes - correctlyClicked} nodes remain to win. `}</p>
             <p>{`${correctlyClicked} nodes exposed. `} </p>
             <p>{`${wronglyClicked}  missed shots. `} </p>

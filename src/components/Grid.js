@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "../styles/Grid.css";
-import { Col, Row } from "react-bootstrap";
+import { Col, ProgressBar, Row } from "react-bootstrap";
 import Options from "./Options";
 import Scores from "./Scores";
 
@@ -147,37 +147,47 @@ function Grid(props) {
   }, [wronglyClicked, correctlyClicked, howManyNodes]);
 
   return (
-    <Row>
-      <Col className={`grid-container ${isLosing ? "missed" : ""}`}>
-        {renderGrid(gridSize, isShowing, clear)}
-        <Row>
-          <Col>
-            <button onClick={startGame}>START</button>
-          </Col>
-          <Col>
-            <Options
-              setDisplayTime={setDisplayTime}
-              setHowManyNodes={setHowManyNodes}
-              arraySize={props.sizeArray}
-            />
-          </Col>
-        </Row>
-      </Col>
-      <Col className="scores">
-        <Scores
-          scores={[
-            correctlyClicked,
-            howManyNodes,
-            wronglyClicked,
-            totalWins,
-            totalDefeats,
-            isWinning,
-            isLosing,
-            displayTime,
-          ]}
-        />
-      </Col>
-    </Row>
+    <Fragment>
+
+          <ProgressBar
+            variant="info"
+            now={isLosing ? 0 : Math.floor((correctlyClicked / howManyNodes) * 100)}
+            label={`${isLosing ? 0 : Math.floor((correctlyClicked / howManyNodes) * 100)}%`}
+          />
+
+      <Row>
+        <Col className={`grid-container ${isLosing ? "missed" : ""}`}>
+          {renderGrid(gridSize, isShowing, clear)}
+          <Row>
+            <Col>
+              <Options
+                  setDisplayTime={setDisplayTime}
+                  setHowManyNodes={setHowManyNodes}
+                  arraySize={props.sizeArray}
+              />
+            </Col>
+            <Col>
+              <button onClick={startGame}>START</button>
+            </Col>
+
+          </Row>
+        </Col>
+        <Col className="scores">
+          <Scores
+            scores={[
+              correctlyClicked,
+              howManyNodes,
+              wronglyClicked,
+              totalWins,
+              totalDefeats,
+              isWinning,
+              isLosing,
+              displayTime,
+            ]}
+          />
+        </Col>
+      </Row>
+    </Fragment>
   );
 }
 

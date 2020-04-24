@@ -10,13 +10,13 @@ function App() {
         <Col>
           <header>
             <h1>memory stretcher</h1>
-            <h4>
+            <h5>
               Randomly chosen nodes are displayed for short amount of time.{" "}
-            </h4>
-            <h4>
+            </h5>
+            <h5>
               Player's task is to memorize and find them all in a less than
               three attempts.
-            </h4>
+            </h5>
           </header>
         </Col>
       </Row>
