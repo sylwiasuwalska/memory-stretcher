@@ -43,6 +43,8 @@ $ npm start
 In this project player sees
 * Simple stats of current game
 * Scores of wins and defeats from all games
+* Modal with options
+* Progressbar showing scores
 
 To-do list:
 * Tests
