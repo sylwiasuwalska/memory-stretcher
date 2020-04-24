@@ -45,8 +45,7 @@ In this project player sees
 * Scores of wins and defeats from all games
 
 To-do list:
-* Improving adding classes on user's click
-* Blocking "start game" button to prevent unwanted user's actions
+* Menu for player to choose difficulty levels and other options
 * Tests
 
 ## Status
