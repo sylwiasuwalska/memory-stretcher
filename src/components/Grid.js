@@ -82,7 +82,7 @@ function Grid(props) {
                 onClick={(e) => handleClick(e)}
                 onAnimationEnd={(e) => e.target.classList.remove("missed")}
               >
-                {/*{randomNodes[counterID]}*/}
+                {/*{nodes[counterID]}*/}
               </div>
             );
           })}
@@ -109,7 +109,7 @@ function Grid(props) {
     if (isShowing || isWinning || isLosing) {
       return;
     }
-    let nodeID = event.target.dataset.index;
+      let nodeID = event.target.dataset.index;
     if (nodes[nodeID] === 1) {
       nodes[nodeID] = 2;
       setCorrectlyClicked(correctlyClicked + 1);
