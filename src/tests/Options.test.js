@@ -12,9 +12,16 @@ import Options from '../components/Options.js';
 //     fireEvent.click(node[0]);
 // });
 
-test('check if button OPTIONS is rendered', () => {
+test('check if modal is shown after click button OPTIONS', () => {
+
     const { getByText } = render(<Options setDisplayTime
                                           setHowManyNodes
                                           arraySize={5}/>);
-    expect(getByText("OPTIONS")).toBeInTheDocument;
+
+    const buttonOptions = getByText("OPTIONS")
+
+    fireEvent.click(buttonOptions);
+    const modalText = getByText("Set display time:")
+    expect(modalText).toBeInTheDocument;
+
 });

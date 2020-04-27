@@ -23,7 +23,7 @@ test("check if correct number of nodes is rendered", () => {
 
 jest.useFakeTimers();
 
-test("check if correct number of nodes is shown after click and hidden after time passes", () => {
+test("check if correct number of nodes is shown and hidden after time passes", () => {
   const { getByText, container } = render(<Grid sizeArray={5} />);
   const buttonStart = getByText("START");
   fireEvent.click(buttonStart);
