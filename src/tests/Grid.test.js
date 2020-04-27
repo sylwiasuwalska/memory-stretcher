@@ -1,8 +1,10 @@
 import React from "react";
-import { render, fireEvent, act } from "@testing-library/react";
+import {render, fireEvent, act, cleanup} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Grid from "../components/Grid.js";
 //import { getAllByTestId, getByTestId, getByText } from "@testing-library/dom";
+
+afterEach(cleanup);
 
 test("check if buttons and texts are rendered", () => {
   const { getByText } = render(<Grid sizeArray={5} />);
@@ -31,15 +33,24 @@ test("check if correct number of nodes is shown after click and hidden after tim
 });
 
 
-//
-//
-// const buttonStart = getByText("START");
-// fireEvent.click(buttonStart);
-// test('loads items eventually', async () => {
-//   // Click button
-//   fireEvent.click(getByText("START"))
-//
-//   // Wait for page to update with query text
-//   const items = await findByText(node, /Item #[0-9]: /)
-//   expect(items).toHaveLength(10)
-// })
+jest.clearAllTimers();
+
+test("check if click on node calls action", () => {
+  const { getByText, container, getByTestId, getAllByTestId } = render(<Grid sizeArray={5} />);
+  const buttonStart = getByText("START");
+  const node = getAllByTestId("node");
+  expect(node[0]).toHaveClass('square')
+
+  fireEvent.click(buttonStart);
+  act(() => jest.advanceTimersByTime(1600));
+
+  fireEvent.click(node[0])
+  expect(node[0]).toHaveClass('square missed')
+
+  jest.clearAllTimers()
+  act(() => jest.advanceTimersByTime(1000));
+  expect(node[0]).not.toHaveClass('square missed')
+});
+
+
+

@@ -11,7 +11,7 @@ function Grid(props) {
     Math.floor(props.sizeArray * props.sizeArray * 0.3)
   );
 
-  const [isShowing, setIsShowing] = useState(false);
+  const [isShowing, setIsShowing] = useState(true);
   const [correctlyClicked, setCorrectlyClicked] = useState(0);
   const [wronglyClicked, setWronglyClicked] = useState(0);
   const [isWinning, setIsWinning] = useState(false);
@@ -56,6 +56,8 @@ function Grid(props) {
       }
     } else if (indicator === 2) {
       return "clicked";
+    } else {
+      return "";
     }
   };
 
@@ -110,7 +112,7 @@ function Grid(props) {
     if (isShowing || isWinning || isLosing) {
       return;
     }
-      let nodeID = event.target.dataset.index;
+    let nodeID = event.target.dataset.index;
     if (nodes[nodeID] === 1) {
       nodes[nodeID] = 2;
       setCorrectlyClicked(correctlyClicked + 1);
