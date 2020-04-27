@@ -17,5 +17,4 @@ test('check if button OPTIONS is rendered', () => {
                                           setHowManyNodes
                                           arraySize={5}/>);
     expect(getByText("OPTIONS")).toBeInTheDocument;
-
 });

@@ -81,6 +81,7 @@ function Grid(props) {
                 }
                 onClick={(e) => handleClick(e)}
                 onAnimationEnd={(e) => e.target.classList.remove("missed")}
+                data-testid="node"
               >
                 {/*{nodes[counterID]}*/}
               </div>
