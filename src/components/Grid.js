@@ -11,7 +11,7 @@ function Grid(props) {
     Math.floor(props.sizeArray * props.sizeArray * 0.3)
   );
 
-  const [isShowing, setIsShowing] = useState(true);
+  const [isShowing, setIsShowing] = useState(false);
   const [correctlyClicked, setCorrectlyClicked] = useState(0);
   const [wronglyClicked, setWronglyClicked] = useState(0);
   const [isWinning, setIsWinning] = useState(false);
