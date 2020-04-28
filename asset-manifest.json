@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/memory-stretcher/static/css/main.ff53dcfc.chunk.css",
-    "main.js": "/memory-stretcher/static/js/main.81d7b630.chunk.js",
-    "main.js.map": "/memory-stretcher/static/js/main.81d7b630.chunk.js.map",
+    "main.js": "/memory-stretcher/static/js/main.3bd7a6fb.chunk.js",
+    "main.js.map": "/memory-stretcher/static/js/main.3bd7a6fb.chunk.js.map",
     "runtime-main.js": "/memory-stretcher/static/js/runtime-main.96ed6a1c.js",
     "runtime-main.js.map": "/memory-stretcher/static/js/runtime-main.96ed6a1c.js.map",
     "static/css/2.69121389.chunk.css": "/memory-stretcher/static/css/2.69121389.chunk.css",
     "static/js/2.03bb954e.chunk.js": "/memory-stretcher/static/js/2.03bb954e.chunk.js",
     "static/js/2.03bb954e.chunk.js.map": "/memory-stretcher/static/js/2.03bb954e.chunk.js.map",
     "index.html": "/memory-stretcher/index.html",
-    "precache-manifest.ddd1b651b82f5b244f39154511f357a0.js": "/memory-stretcher/precache-manifest.ddd1b651b82f5b244f39154511f357a0.js",
+    "precache-manifest.b29aee0f2382ace75392bf7bf0a9f028.js": "/memory-stretcher/precache-manifest.b29aee0f2382ace75392bf7bf0a9f028.js",
     "service-worker.js": "/memory-stretcher/service-worker.js",
     "static/css/2.69121389.chunk.css.map": "/memory-stretcher/static/css/2.69121389.chunk.css.map",
     "static/css/main.ff53dcfc.chunk.css.map": "/memory-stretcher/static/css/main.ff53dcfc.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.69121389.chunk.css",
     "static/js/2.03bb954e.chunk.js",
     "static/css/main.ff53dcfc.chunk.css",
-    "static/js/main.81d7b630.chunk.js"
+    "static/js/main.3bd7a6fb.chunk.js"
   ]
 }
