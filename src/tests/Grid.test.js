@@ -36,7 +36,7 @@ test("check if correct number of nodes is shown and hidden after time passes", (
 jest.clearAllTimers();
 
 test("check if click on node calls action", () => {
-  const { getByText, container, getByTestId, getAllByTestId } = render(<Grid sizeArray={5} />);
+  const { getByText, getAllByTestId } = render(<Grid sizeArray={5} />);
   const buttonStart = getByText("START");
   const node = getAllByTestId("node");
   expect(node[0]).toHaveClass('square')
@@ -45,11 +45,11 @@ test("check if click on node calls action", () => {
   act(() => jest.advanceTimersByTime(1600));
 
   fireEvent.click(node[0])
-  expect(node[0]).toHaveClass('square missed')
+  expect(node[0]).toHaveClass('missed')
 
   jest.clearAllTimers()
   act(() => jest.advanceTimersByTime(1000));
-  expect(node[0]).not.toHaveClass('square missed')
+  expect(node[0]).not.toHaveClass('missed')
 });
 
 
