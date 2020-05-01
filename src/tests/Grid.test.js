@@ -2,7 +2,7 @@ import React from "react";
 import {render, fireEvent, act, cleanup} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Grid from "../components/Grid.js";
-//import { getAllByTestId, getByTestId, getByText } from "@testing-library/dom";
+
 
 afterEach(cleanup);
 
@@ -36,7 +36,7 @@ test("check if correct number of nodes is shown and hidden after time passes", (
 jest.clearAllTimers();
 
 test("check if click on node calls action", () => {
-  const { getByText, getAllByTestId } = render(<Grid sizeArray={5} />);
+  const { getByText, getAllByTestId, rerender } = render(<Grid sizeArray={5} />);
   const buttonStart = getByText("START");
   const node = getAllByTestId("node");
   expect(node[0]).toHaveClass('square')
@@ -46,11 +46,8 @@ test("check if click on node calls action", () => {
 
   fireEvent.click(node[0])
   expect(node[0]).toHaveClass('missed')
-
-  jest.clearAllTimers()
-  act(() => jest.advanceTimersByTime(1000));
-  expect(node[0]).not.toHaveClass('missed')
 });
+
 
 
 
