@@ -51,3 +51,20 @@ test('level option invokes function changing level',  (done) => {
     const radioOption = getByText("medium")
     fireEvent.click(radioOption);
 });
+
+test('click on save button hides modal',  () => {
+    const { getByText } = render(<Options setDisplayTime
+                                          setHowManyNodes
+                                          arraySize={5}/>);
+
+    const buttonOptions = getByText("OPTIONS")
+
+    fireEvent.click(buttonOptions);
+    const modalText = getByText("Set display time:")
+    expect(modalText).toBeInTheDocument;
+
+    const saveButton = getByText("SAVE")
+    expect(saveButton).toBeInTheDocument;
+    fireEvent.click(saveButton);
+    expect(modalText).not.toBeInTheDocument;
+});
