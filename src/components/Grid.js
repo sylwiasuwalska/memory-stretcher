@@ -34,7 +34,7 @@ function Grid(props) {
     for (let i = 1; i <= howManyNodes; i++) {
       let indexOfCurrentNode = between(1, size * size) - 1;
       while (randomNodes[indexOfCurrentNode] === 1) {
-        indexOfCurrentNode = between(1, size * size);
+        indexOfCurrentNode = between(1, size * size) - 1;
       }
       randomNodes[indexOfCurrentNode] = 1;
     }
